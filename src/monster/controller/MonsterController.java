@@ -2,9 +2,16 @@ package monster.controller;
 
 import monster.model.MarshmallowMonster;
 import java.util.Scanner;
+import monster.view.MonsterDisplay;
 
 public class MonsterController
 {
+	private MonsterDisplay popup;
+	
+	public MonsterController()
+	{
+		popup = new MonsterDisplay();
+	}
 	public void start()
 	{
 		MarshmallowMonster sample = new MarshmallowMonster();
@@ -75,6 +82,11 @@ public class MonsterController
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 			System.out.println("Now I only have this many " + currentMonster.getEyeCount() +" eyes left.");
 		}
+		
+		popup.displayText("Hey look at me  !!!!");
+		String answer = popup.getResponse("How many meals are you eating today");
+		System.out.println(answer);
+		popup.displayText(answer);
 	}
 
 }
