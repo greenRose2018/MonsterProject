@@ -75,6 +75,10 @@ public class MonsterController
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 			System.out.println("Now I only have this many " + currentMonster.getEyeCount() +" eyes left.");
 		}
+//		
+//		currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
+//		System.out.println("Ok, now " + currentMonster.getName() + " has " + currentMonster.getArmCount() + " arms left.");
+//		
 	}
 
 }
