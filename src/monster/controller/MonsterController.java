@@ -29,7 +29,6 @@ public class MonsterController
 		popup.displayText(realMonster.toString());		
 		interactWithTheMonster(realMonster);
 	}
-	
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
 
 	{
@@ -41,8 +40,10 @@ public class MonsterController
 		
 		int specialAnswer;
 		String unconverted = popup.getResponse("How many do you want to eat?");
-		
-		specialAnswer =  Integer.parseInt(unconverted);
+		if(isValidInteger(unconverted))
+		{
+			specialAnswer =  Integer.parseInt(unconverted);
+		}
 		
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
@@ -66,11 +67,12 @@ public class MonsterController
 		else
 		{
 			currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
-			//System.out.println("Thank you I only havve this many arms now: " + currentMonster.getArmCount());
+			//System.out.println("Thank you I only have this many arms now: " + currentMonster.getArmCount());
 			popup.displayText("Thank you I only havve this many arms now: " + currentMonster.getArmCount());
 		}
 		
-		System.out.println("How many eyes do you Want to eat - I only have " + currentMonster.getEyeCount());
+		//System.out.println("How many eyes do you Want to eat - I only have " + currentMonster.getEyeCount());
+		popup.displayText("How many eyes do you Want to eat - I only have " + currentMonster.getEyeCount());
 		int consumedEyes = myScanner.nextInt();
 		
 		if (consumedEyes == 0)
@@ -121,6 +123,36 @@ public class MonsterController
 			popup.displayText("Only integervalues are valid: " + sample + " is not");
 		}
 		
+		return valid;
+	}
+	private boolean isValidDouble(String sampleDouble)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Double.parseDouble(sampleDouble);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("Only doble values are valid: " + sampleDouble + " is not. ");
+		}
+		return valid;
+	}
+	private boolean isValidBoolean(String sampleBoolean)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Boolean.parseBoolean(sampleBoolean);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("Only true or False is valid: " + sampleBoolean + " is not. ");
+		}
 		return valid;
 	}
 }
