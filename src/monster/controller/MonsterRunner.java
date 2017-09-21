@@ -6,6 +6,6 @@ public class MonsterRunner
 	{
 		MonsterController app = new MonsterController();
 		app.start();
-	}
+	}// will always need to start the program 
 
 }

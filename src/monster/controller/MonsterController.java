@@ -6,15 +6,16 @@ import monster.view.MonsterDisplay;
 
 public class MonsterController
 {
-	private MonsterDisplay popup;
+	private MonsterDisplay popup; //enable popup,also import MonsterDisplay;
 	
 	
 	public MonsterController()
 	{
-		popup = new MonsterDisplay();
+		popup = new MonsterDisplay(); //to be able to be shown
 	}
 	public void start()
 	{
+		// commented out System.out.println() because to practice the popup.displayText
 		MarshmallowMonster sample = new MarshmallowMonster();
 		//System.out.println(sample);
 		popup.displayText(sample.toString());
@@ -30,15 +31,15 @@ public class MonsterController
 		interactWithTheMonster(realMonster);
 	}
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
-
-	{
+	//commented out System.out.println() to practice popup.displayText
+	{	
 //		System.out.println(currentMonster.getName() + " wants to know what to eat next");
 		popup.displayText(currentMonster.getName() + " wants to know what to eat next");
 //		System.out.println(currentMonster.getName() + " suggest arms, they have " + currentMonster.getArmCount());
 		popup.displayText(currentMonster.getName() + " suggest arms, they have " + currentMonster.getArmCount());
 //		System.out.println("How many do you want to eat?");
-		
-		int specialAnswer;
+		//Learning to use getResponse, Valid, try/catch, and unconverted
+		int specialAnswer = 0;
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		if(isValidInteger(unconverted))
 		{
@@ -46,8 +47,11 @@ public class MonsterController
 		}
 		
 		Scanner myScanner = new Scanner(System.in);
-		int consumed = myScanner.nextInt();
 		
+		int consumed = 0;
+		consumed = specialAnswer;
+		
+		//Learning to use if statement for eating body parts off the monster
 		if(consumed < 0)
 		{
 			//System.out.println("You cannot eat a negative amount silly human.");
@@ -70,7 +74,7 @@ public class MonsterController
 			//System.out.println("Thank you I only have this many arms now: " + currentMonster.getArmCount());
 			popup.displayText("Thank you I only havve this many arms now: " + currentMonster.getArmCount());
 		}
-		
+		//To practice the if Statements on my own
 		//System.out.println("How many eyes do you Want to eat - I only have " + currentMonster.getEyeCount());
 		popup.displayText("How many eyes do you Want to eat - I only have " + currentMonster.getEyeCount());
 		int consumedEyes = myScanner.nextInt();
@@ -84,7 +88,7 @@ public class MonsterController
 			System.out.println("that is impossible - I only have" + currentMonster.getEyeCount()+"eyes!!!");
 		}
 		else if (consumedEyes < 0)
-		{	
+		{	//I nested an if statement but didn't finish , but not important just to practice
 			System.out.println("You can't eat a negative amount silly.");
 			System.out.println("Again, how many do you want to eat again.");
 			int newconsumedEyes = myScanner.nextInt();
@@ -101,7 +105,7 @@ public class MonsterController
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 			System.out.println("Now I only have this many " + currentMonster.getEyeCount() +" eyes left.");
 		}
-		
+		//first use of popup display
 		popup.displayText("Hey look at me  !!!!");
 		String answer = popup.getResponse("How many meals are you eating today");
 		System.out.println(answer);
@@ -109,8 +113,9 @@ public class MonsterController
 	}
 
 	//Helper methods
+	// learning to use a helper methods and how they work and same layout for Integer, Boolean, and Double only works on this for Valid
 	private boolean isValidInteger(String sample)
-	{
+	{  
 		boolean valid = false;
 		
 		try
