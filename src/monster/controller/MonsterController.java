@@ -74,6 +74,7 @@ public class MonsterController
 		int consumed = 0;
 		consumed = specialAnswer;
 		
+		
 		//Learning to use if statement for eating body parts off the monster
 		if(consumed < 0)
 		{
@@ -100,26 +101,50 @@ public class MonsterController
 		//To practice the if Statements on my own
 		//System.out.println("How many eyes do you Want to eat - I only have " + currentMonster.getEyeCount());
 		popup.displayText("How many eyes do you Want to eat - I only have " + currentMonster.getEyeCount());
-		int consumedEyes = myScanner.nextInt();
+		String unconverted2 = popup.getResponse("How many eyes do you want to eat?");
+		int specialAnswer2 = 0;
+		while(!isValidInteger(unconverted2))
+		{
+			popup.displayText("it works");
+			unconverted2 = popup.getResponse("how many eyes???");
+		}
+			specialAnswer2 = Integer.parseInt(unconverted2);
+		
+		int consumedEyes = 0;
+		consumedEyes = specialAnswer2;
 		
 		if (consumedEyes == 0)
 		{
-			System.out.println("Not that hungry, huh");
+			//System.out.println("Not that hungry, huh");
+			popup.displayText("Not that hungry, huh");
 		}
 		else if (consumedEyes > currentMonster.getEyeCount())
 		{
-			System.out.println("that is impossible - I only have" + currentMonster.getEyeCount()+"eyes!!!");
+			//System.out.println("that is impossible - I only have" + currentMonster.getEyeCount()+"eyes!!!");
+			popup.displayText("that is impossible - I only have" + currentMonster.getEyeCount()+"eyes!!!");
 		}
 		else if (consumedEyes < 0)
 		{	//I nested an if statement but didn't finish , but not important just to practice
-			System.out.println("You can't eat a negative amount silly.");
-			System.out.println("Again, how many do you want to eat again.");
-			int newconsumedEyes = myScanner.nextInt();
+			//System.out.println("You can't eat a negative amount silly.");
+			popup.displayText("You can't eat a negative amount silly.");
+			//System.out.println("Again, how many do you want to eat again.");
 			
+			String unconverted3 = popup.getResponse("Again, how many do you want to eat again.");
+			int specialAnswer3 = 0;
+			while(!isValidInteger(unconverted3))
+			{
+				popup.displayText("Try again!!!");
+				unconverted3 = popup.getResponse("how many eyes????");
+			}
+			specialAnswer3 = Integer.parseInt(unconverted3);
+			
+			int newconsumedEyes = 0;
+			newconsumedEyes = specialAnswer3;
 			if (newconsumedEyes == 1 )
 			{
 				currentMonster.setEyeCount(currentMonster.getEyeCount() - newconsumedEyes);
-				System.out.println("Now I only have " + currentMonster.getEyeCount() + " eyes left.");
+				//System.out.println("Now I only have " + currentMonster.getEyeCount() + " eyes left.");
+				popup.displayText("Now I only have \" + currentMonster.getEyeCount() + \" eyes left.");
 			}
 						
 		}	
