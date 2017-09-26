@@ -56,10 +56,18 @@ public class MonsterController
 		//Learning to use getResponse, Valid, try/catch, and unconverted
 		int specialAnswer = 0;
 		String unconverted = popup.getResponse("How many do you want to eat?");
-		if(isValidInteger(unconverted))
+		while(!isValidInteger(unconverted))
 		{
-			specialAnswer =  Integer.parseInt(unconverted);
+			popup.displayText("Try again!");
+			unconverted = popup.getResponse("How many arms????");
 		}
+		
+		//if(isValidInteger(unconverted))
+		//{
+			specialAnswer =  Integer.parseInt(unconverted);
+		//}
+		
+		
 		
 		Scanner myScanner = new Scanner(System.in);
 		
