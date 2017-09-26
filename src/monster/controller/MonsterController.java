@@ -23,7 +23,11 @@ public class MonsterController
 //			popup.displayText("I am so neat!" + count);
 //			count++;
 //		}
-		
+//		
+//		for(int loop = 0; loop < 15; loop += 1)
+//		{
+//			popup.displayText("I am looping " + (loop + 1) + " times out of 15");
+//		}
 		
 		
 		// commented out System.out.println() because to practice the popup.displayText
