@@ -38,7 +38,7 @@ public class MonsterController
 		MarshmallowMonster sample = new MarshmallowMonster();
 		//System.out.println(sample);
 		popup.displayText(sample.toString());
-		MarshmallowMonster realMonster = new MarshmallowMonster("Fred", 1,2,2,true);
+		MarshmallowMonster realMonster = new MarshmallowMonster("Fred", "1", 1,2,2,true);
 		
 	//	System.out.println(realMonster);
 		popup.displayText(realMonster.toString());
@@ -64,6 +64,12 @@ public class MonsterController
 			String newName = popup.getResponse("What should my new name be???");
 			currentMonster.setName(newName);
 			popup.displayText(currentMonster.getName());
+			
+			//practice with for arraylist
+			popup.displayText(currentMonster.getAge());
+			String newAge = popup.getResponse("What is my age???");
+			currentMonster.setAge(newAge);
+			popup.displayText(currentMonster.getAge());
 		}
 		
 		for(MarshmallowMonster current : monsterList)
@@ -72,6 +78,7 @@ public class MonsterController
 			String newName = popup.getResponse("what should my new new name be?");
 			current.setName(newName);;
 			popup.displayText(current.getName());
+			
 		}
 	}
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)

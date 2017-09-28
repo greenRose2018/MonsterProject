@@ -4,6 +4,7 @@ public class MarshmallowMonster
 {
 	//Declaration section for the data members
 	private String name;
+	private String age;
 	private int eyeCount;
 	private int armCount;
 	private double tentacleAmount;
@@ -16,9 +17,10 @@ public class MarshmallowMonster
 		
 	}
 	
-	public MarshmallowMonster(String name, int eyeCount, int arms, double tentacleCount, boolean hasBloop)
+	public MarshmallowMonster(String name, String age, int eyeCount, int arms, double tentacleCount, boolean hasBloop)
 	{
 		this.name = name;
+		this.age = age;
 		this.eyeCount = eyeCount;
 		this.armCount = arms;
 		this.tentacleAmount = tentacleCount;
@@ -27,6 +29,10 @@ public class MarshmallowMonster
 	public String getName()
 	{
 		return name;
+	}
+	public String getAge()
+	{
+		return age;
 	}
 	public int getEyeCount()
 	{
@@ -51,6 +57,10 @@ public class MarshmallowMonster
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+	public void setAge(String age)
+	{
+		this.age = age;
 	}
 	public void setEyeCount(int eyeCount)
 	{
