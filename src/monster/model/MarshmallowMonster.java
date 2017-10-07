@@ -13,7 +13,6 @@ public class MarshmallowMonster
 	{
 		//Unless we specify values all data members
 		//are a zero, false, or null
-		
 	}
 	
 	public MarshmallowMonster(String name, int eyeCount, int arms, double tentacleCount, boolean hasBloop)
