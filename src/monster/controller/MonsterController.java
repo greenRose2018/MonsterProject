@@ -3,15 +3,19 @@ package monster.controller;
 import monster.model.MarshmallowMonster;
 import java.util.Scanner;
 import monster.view.MonsterDisplay;
+import java.util.List;
+import java.util.ArrayList;
 
 public class MonsterController
 {
 	private MonsterDisplay popup; //enable popup,also import MonsterDisplay;
+	private List<MarshmallowMonster> monsterList;
 	
 	
 	public MonsterController()
 	{
 		popup = new MonsterDisplay(); //to be able to be shown
+		monsterList = new ArrayList<MarshmallowMonster>();
 	}
 	public void start()
 	{
@@ -34,7 +38,7 @@ public class MonsterController
 		MarshmallowMonster sample = new MarshmallowMonster();
 		//System.out.println(sample);
 		popup.displayText(sample.toString());
-		MarshmallowMonster realMonster = new MarshmallowMonster("Fred", 1,2,2,true);
+		MarshmallowMonster realMonster = new MarshmallowMonster("Fred", "1", 1,2,2,true);
 		
 	//	System.out.println(realMonster);
 		popup.displayText(realMonster.toString());
@@ -43,7 +47,39 @@ public class MonsterController
 		realMonster.setTentacleAmount(2);
 	//	System.out.println(realMonster);
 		popup.displayText(realMonster.toString());		
+		
+		monsterList.add(realMonster);
+		monsterList.add(sample);
+		testList();
+		
 		interactWithTheMonster(realMonster);
+	}
+	
+	private void testList()
+	{
+		for(int index = 0; index < monsterList.size(); index++)
+		{
+			MarshmallowMonster currentMonster = monsterList.get(index);
+			popup.displayText(currentMonster.getName());
+			String newName = popup.getResponse("What should my new name be???");
+			currentMonster.setName(newName);
+			popup.displayText(currentMonster.getName());
+			
+			//practice with for arraylist
+			popup.displayText(currentMonster.getAge());
+			String newAge = popup.getResponse("What is my age???");
+			currentMonster.setAge(newAge);
+			popup.displayText(currentMonster.getAge());
+		}
+		
+		for(MarshmallowMonster current : monsterList)
+		{
+			popup.displayText(current.getName());
+			String newName = popup.getResponse("what should my new new name be?");
+			current.setName(newName);;
+			popup.displayText(current.getName());
+			
+		}
 	}
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
 	//commented out System.out.println() to practice popup.displayText
