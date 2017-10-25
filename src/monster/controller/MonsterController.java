@@ -105,7 +105,7 @@ public class MonsterController
 		
 		
 		
-		Scanner myScanner = new Scanner(System.in);
+		Scanner myScanner = new Scanner(System.in); // to talk with the console
 		
 		int consumed = 0;
 		consumed = specialAnswer;
